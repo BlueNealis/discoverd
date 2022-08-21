@@ -37,6 +37,8 @@ export default function ResponsePage({ route }) {
          body: JSON.stringify(data),
        })
        .then((response) => {
+         console.log('apiKey', apiKey)
+         console.log('response', response)
         if (!response.ok) {
           throw new Error(response.status + " " + response.statusText)
         } else {
@@ -72,6 +74,7 @@ export default function ResponsePage({ route }) {
 
   useEffect(() => {
     createResults()
+
   }, [suggestions, errMessage])
 
   if(errMessage) {
@@ -85,7 +88,7 @@ export default function ResponsePage({ route }) {
   }else {
     return (
         <ScrollView style={styles.scroll}>
-        {loading ? <Loading /> : {resultsCards}}
+        {loading ? <Loading /> : resultsCards}
         </ScrollView>
     )
   }

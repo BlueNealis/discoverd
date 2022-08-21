@@ -11,12 +11,12 @@ import Welcome from './Views/Welcome'
 import ResponsePage from './Views/ResponsePage'
 import HeaderLogo from './components/Header'
 import {API_KEY} from '@env'
+console.log(API_KEY)
 
 
 const App = () => {
   const [imageBaseStrings, setImageBaseStrings] = useState([])
   const [imageUris, setImageUris] = useState([])
-  const [apiKey, setApiKey] = useState('')
   const windowDimensions = Dimensions. get('window')
   const Stack = createNativeStackNavigator()
 
@@ -41,7 +41,7 @@ const App = () => {
           alignContent: "stretch",
         }}>
 
-          <Dashboard handleChange={handleChange} apiKey={apiKey} imageUris={imageUris} navigation={navigation} imageBaseStrings={imageBaseStrings} dimensions={windowDimensions}/>
+          <Dashboard handleChange={handleChange} apiKey={API_KEY} imageUris={imageUris} navigation={navigation} imageBaseStrings={imageBaseStrings} dimensions={windowDimensions}/>
 
           <StatusBar style="auto" />
         </View>
@@ -64,7 +64,7 @@ const App = () => {
             }
           }}
           component={WelcomeScreen} />
-        <Stack.Screen 
+        <Stack.Screen
           name="Home"
           options={{
             headerStyle: {
@@ -72,8 +72,8 @@ const App = () => {
             }
         }}
           component={HomeScreen} />
-        <Stack.Screen 
-          name="Results" 
+        <Stack.Screen
+          name="Results"
           component={ResponsePage} />
       </Stack.Navigator>
     </NavigationContainer>
